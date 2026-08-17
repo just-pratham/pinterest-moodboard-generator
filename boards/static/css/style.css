@@ -326,3 +326,231 @@ body {
     font-size: 12px;
     letter-spacing: 0.3px;
 }
+
+/* ================================
+   MOODBOARD PREVIEW
+   ================================ */
+
+.moodboard-preview {
+    padding: 120px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Preview heading */
+
+.preview-heading {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 60px;
+}
+
+.preview-heading h2 {
+    margin: 0;
+    font-size: clamp(38px, 5vw, 60px);
+    line-height: 1;
+    letter-spacing: -2.5px;
+    font-weight: 600;
+}
+
+.preview-heading h2 span {
+    display: block;
+    color: #8b867e;
+}
+
+.preview-heading > p:last-child {
+    margin-top: 25px;
+    color: #77736d;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* ================================
+   MASONRY GRID
+   ================================ */
+
+.moodboard-grid {
+    columns: 3;
+    column-gap: 18px;
+}
+
+
+/* ================================
+   MOODBOARD CARD
+   ================================ */
+
+.mood-card {
+    position: relative;
+    display: block;
+    break-inside: avoid;
+    margin-bottom: 18px;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #e8e4de;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Image */
+
+.mood-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+
+/* ================================
+   HOVER OVERLAY
+   ================================ */
+
+.mood-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: flex-end;
+
+    padding: 24px;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.72),
+        rgba(0, 0, 0, 0.15),
+        transparent
+    );
+
+    color: white;
+
+    opacity: 0;
+
+    transition: opacity 0.35s ease;
+}
+
+
+/* Show overlay */
+
+.mood-card:hover .mood-overlay {
+    opacity: 1;
+}
+
+
+/* Slight image zoom */
+
+.mood-card:hover img {
+    transform: scale(1.05);
+}
+
+/* ================================
+   KEYBOARD ACCESSIBILITY
+   ================================ */
+
+.mood-card:focus {
+    outline: none;
+}
+
+.mood-card:focus-visible {
+    outline: 3px solid #202020;
+    outline-offset: 4px;
+}
+
+.mood-card:focus-visible .mood-overlay {
+    opacity: 1;
+}
+
+.mood-card:focus-visible .mood-overlay div {
+    transform: translateY(0);
+}
+
+.mood-card:focus-visible img {
+    transform: scale(1.05);
+}
+
+
+/* ================================
+   CARD TEXT
+   ================================ */
+
+.mood-overlay div {
+    transform: translateY(12px);
+    transition: transform 0.35s ease;
+}
+
+.mood-card:hover .mood-overlay div {
+    transform: translateY(0);
+}
+
+
+.mood-category {
+    display: block;
+    margin-bottom: 7px;
+
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+
+    opacity: 0.75;
+}
+
+
+.mood-overlay h3 {
+    margin: 0;
+
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+
+
+.mood-overlay p {
+    margin: 6px 0 0;
+
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+
+/* ================================
+   RESPONSIVE GRID
+   ================================ */
+
+@media (max-width: 800px) {
+
+    .moodboard-preview {
+        padding: 90px 24px;
+    }
+
+    .moodboard-grid {
+        columns: 2;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .moodboard-preview {
+        padding: 70px 18px;
+    }
+
+    .moodboard-grid {
+        columns: 1;
+    }
+
+    .preview-heading {
+        margin-bottom: 40px;
+    }
+
+    .mood-overlay {
+        opacity: 1;
+    }
+
+    .mood-overlay div {
+        transform: translateY(0);
+    }
+}
+
