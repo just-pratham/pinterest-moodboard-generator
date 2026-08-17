@@ -1,0 +1,328 @@
+/* ================================
+   GLOBAL STYLES
+   ================================ */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f7f5f2;
+    color: #202020;
+}
+
+
+/* ================================
+   NAVIGATION BAR
+   ================================ */
+
+.navbar {
+    height: 72px;
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid #e8e4de;
+    box-sizing: border-box;
+}
+.nav-actions {
+    justify-self: end;
+}
+
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #202020;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.logo-mark {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #202020;
+    color: #ffffff;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+/* Navigation links */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+
+.nav-links a,
+.about-link {
+    position: relative;
+    text-decoration: none;
+    color: #77736d;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.25s ease;
+}
+
+.nav-links a:hover,
+.about-link:hover,
+.nav-links a.active {
+    color: #202020;
+}
+
+
+/* Active navigation indicator */
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    width: 5px;
+    height: 5px;
+    background: #202020;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* Right-side navigation */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+
+/* Create button */
+
+.create-btn {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 17px;
+    border-radius: 12px;
+    background: #202020;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.create-btn span {
+    font-size: 18px;
+    line-height: 12px;
+}
+
+.create-btn:hover {
+    transform: translateY(-2px);
+    background: #353535;
+}
+
+
+/* ================================
+   OLD PAGE CONTENT
+   ================================ */
+
+
+/* ================================
+   RESPONSIVE NAVIGATION
+   ================================ */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: 64px;
+        padding: 0 16px;
+        grid-template-columns: auto 1fr auto;
+        gap: 12px;
+    }
+
+    .logo {
+        gap: 7px;
+        font-size: 16px;
+        white-space: nowrap;
+    }
+
+    .logo-mark {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 14px;
+        min-width: 0;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .nav-actions {
+        gap: 0;
+    }
+
+    /* About is less important on small screens */
+    .about-link {
+        display: none;
+    }
+
+    .create-btn {
+        padding: 9px 11px;
+        border-radius: 10px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .create-btn span {
+        font-size: 16px;
+    }
+
+    .nav-links a.active::after {
+        bottom: -6px;
+        width: 4px;
+        height: 4px;
+    }
+}@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 24px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .about-link {
+        display: none;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .create-btn {
+        padding: 10px 14px;
+    }
+}
+
+/* ================================
+   HERO SECTION
+   ================================ */
+
+.hero {
+    min-height: calc(100vh - 72px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    box-sizing: border-box;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+
+/* Small heading above main title */
+
+.eyebrow {
+    margin: 0 0 24px;
+    color: #8b867e;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+}
+
+
+/* Main heading */
+
+.hero h1 {
+    margin: 0;
+    font-size: clamp(52px, 7vw, 92px);
+    line-height: 0.98;
+    letter-spacing: -4px;
+    font-weight: 600;
+}
+
+.hero h1 span {
+    display: block;
+    color: #8b867e;
+}
+
+
+/* Description */
+
+.hero-description {
+    max-width: 570px;
+    margin: 32px auto 0;
+    color: #77736d;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* Hero button */
+
+.hero-actions {
+    margin-top: 35px;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 23px;
+    background: #202020;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 13px;
+    font-size: 14px;
+    font-weight: 500;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.hero-btn span {
+    font-size: 19px;
+    transition: transform 0.25s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    background: #353535;
+}
+
+.hero-btn:hover span {
+    transform: translateX(4px);
+}
+
+
+/* Small text underneath */
+
+.hero-note {
+    margin-top: 25px;
+    color: #aaa59d;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+}
