@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ moodboard.title }} | Moodboard</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <a href="{% url 'home' %}" class="logo">
+            <span class="logo-mark">M</span>
+            <span>moodboard</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="#">Explore</a>
+            <a href="{% url 'my_boards' %}" class="active">
+                My Boards
+            </a>
+        </div>
+
+        <div class="nav-actions">
+
+            <a href="{% url 'create_moodboard' %}" class="create-btn">
+                Create <span>+</span>
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Moodboard Detail -->
+    <main class="moodboard-detail">
+
+    <div
+        class="moodboard-detail-header"
+        style="background-color: {{ moodboard.background_color }};"
+    >
+
+        <div class="detail-header-content">
+
+            <p class="eyebrow">
+                MOODBOARD
+            </p>
+
+            <h1>
+                {{ moodboard.title }}
+            </h1>
+
+            {% if moodboard.description %}
+                <p class="detail-description">
+                    {{ moodboard.description }}
+                </p>
+            {% endif %}
+
+            <p class="detail-date">
+                Created {{ moodboard.created_at|date:"d M Y" }}
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <section class="moodboard-content">
+
+        <div class="empty-moodboard">
+
+            <h2>Your moodboard is ready.</h2>
+
+            <p>
+                Start adding images to bring your ideas to life.
+            </p>
+
+            <button class="hero-btn" type="button">
+                Add Image
+                <span>+</span>
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+</body>
+
+</html>

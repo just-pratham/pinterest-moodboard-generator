@@ -1,0 +1,123 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Boards | Moodboard</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <a href="{% url 'home' %}" class="logo">
+            <span class="logo-mark">M</span>
+            <span>moodboard</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="#">Explore</a>
+            <a href="{% url 'my_boards' %}" class="active">My Boards</a>
+        </div>
+
+        <div class="nav-actions">
+            <a href="#" class="about-link">About</a>
+
+            <a href="{% url 'create_moodboard' %}" class="create-btn">
+                Create <span>+</span>
+            </a>
+        </div>
+
+    </nav>
+
+
+    <main class="boards-page">
+
+        <div class="boards-heading">
+
+            <p class="eyebrow">
+                YOUR COLLECTION
+            </p>
+
+            <h1>
+                My <span>Boards.</span>
+            </h1>
+
+            <p>
+                Your ideas, inspirations and visual stories
+                all in one place.
+            </p>
+
+        </div>
+
+
+        {% if moodboards %}
+
+            <div class="boards-grid">
+
+                {% for board in moodboards %}
+
+                    <a
+                    href="{% url 'moodboard_detail' board.id %}"
+                    class="board-card"
+                    >
+
+                        <div
+                            class="board-color"
+                            style="background-color: {{ board.background_color }};"
+                        ></div>
+
+                        <div class="board-card-content">
+
+                            <h2>{{ board.title }}</h2>
+
+                            {% if board.description %}
+                                <p>{{ board.description }}</p>
+                            {% else %}
+                                <p>No description yet.</p>
+                            {% endif %}
+
+                            <span class="board-date">
+                                Created {{ board.created_at|date:"d M Y" }}
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="empty-boards">
+
+                <h2>No moodboards yet.</h2>
+
+                <p>
+                    Start collecting your inspiration and create
+                    your first moodboard.
+                </p>
+
+                <a href="{% url 'create_moodboard' %}" class="hero-btn">
+                    Create Moodboard
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        {% endif %}
+
+    </main>
+
+</body>
+
+</html>

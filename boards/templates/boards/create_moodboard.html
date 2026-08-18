@@ -1,0 +1,165 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Moodboard | Moodboard</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+
+        <a href="{% url 'home' %}" class="logo">
+            <span class="logo-mark">M</span>
+            <span>moodboard</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="#">Explore</a>
+    <a href="{% url 'my_boards' %}">My Boards</a>        </div>
+
+        <div class="nav-actions">
+            <a href="#" class="about-link">About</a>
+
+            <a href="{% url 'create_moodboard' %}" class="create-btn">
+                Create <span>+</span>
+            </a>
+        </div>
+
+    </nav>
+
+
+    <!-- Create Moodboard -->
+    <main class="create-page">
+
+        <div class="create-container">
+
+            <div class="create-heading">
+
+                <p class="eyebrow">
+                    START CREATING
+                </p>
+
+                <h1>
+                    Create your
+                    <span>moodboard.</span>
+                </h1>
+
+                <p>
+                    Give your moodboard a name, describe your vision,
+                    and choose a background color.
+                </p>
+
+            </div>
+
+
+            <!-- Moodboard Form -->
+            <form method="POST"
+                  action="{% url 'create_moodboard' %}"
+                  class="moodboard-form">
+
+                {% csrf_token %}
+
+
+                <!-- Non-field errors -->
+                {% if form.non_field_errors %}
+                    <div class="form-errors">
+                        {% for error in form.non_field_errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+
+                <!-- Title -->
+                <div class="form-group">
+
+                    <label for="{{ form.title.id_for_label }}">
+                        Title
+                    </label>
+
+                    {{ form.title }}
+
+                    {% if form.title.errors %}
+                        <div class="field-errors">
+                            {% for error in form.title.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+
+                <!-- Description -->
+                <div class="form-group">
+
+                    <label for="{{ form.description.id_for_label }}">
+                        Description
+                    </label>
+
+                    {{ form.description }}
+
+                    {% if form.description.errors %}
+                        <div class="field-errors">
+                            {% for error in form.description.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+
+                <!-- Background Color -->
+                <div class="form-group">
+
+                    <label for="{{ form.background_color.id_for_label }}">
+                        Background Color
+                    </label>
+
+                    {{ form.background_color }}
+
+                    {% if form.background_color.errors %}
+                        <div class="field-errors">
+                            {% for error in form.background_color.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+
+                <!-- Submit -->
+                <div class="form-actions">
+
+                    <a href="{% url 'home' %}" class="cancel-btn">
+                        Cancel
+                    </a>
+
+                    <button type="submit" class="submit-btn">
+                        Create Moodboard
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
