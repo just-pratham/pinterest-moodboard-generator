@@ -76,7 +76,95 @@
 
     <section class="moodboard-content">
 
+    {% if images %}
+
+        <div class="masonry-gallery">
+
+            {% for image in images %}
+
+                <article class="masonry-card">
+
+    <div class="masonry-image-wrapper">
+
+        <img
+            src="{{ image.image_url }}"
+            alt="{{ image.caption|default:moodboard.title }}"
+            loading="lazy"
+            onerror="this.style.display='none'; this.parentElement.classList.add('image-load-error');"
+        >
+
+        <div class="image-fallback">
+
+            <div class="image-fallback-icon">
+                <span>×</span>
+            </div>
+
+            <p>
+                Image unavailable
+            </p>
+
+            <span>
+                This image could not be loaded.
+            </span>
+
+        </div>
+
+
+        {% if image.caption %}
+
+            <div class="masonry-caption">
+                <span>{{ image.caption }}</span>
+            </div>
+
+        {% endif %}
+
+
+        <!-- Image controls -->
+
+        <div class="image-card-actions">
+
+            <a
+                href="{% url 'edit_image' moodboard.id image.id %}"
+                class="image-action edit-image-action"
+            >
+                Edit
+            </a>
+
+
+            <form
+                method="POST"
+                action="{% url 'delete_image' moodboard.id image.id %}"
+                onsubmit="return confirm('Delete this image from the moodboard?');"
+            >
+
+                {% csrf_token %}
+
+                <button
+                    type="submit"
+                    class="image-action delete-image-action"
+                >
+                    Delete
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</article>
+
+            {% endfor %}
+
+        </div>
+
+    {% else %}
+
         <div class="empty-moodboard">
+
+            <div class="empty-moodboard-icon">
+                +
+            </div>
 
             <h2>Your moodboard is ready.</h2>
 
@@ -84,15 +172,24 @@
                 Start adding images to bring your ideas to life.
             </p>
 
-            <button class="hero-btn" type="button">
-                Add Image
-                <span>+</span>
-            </button>
-
         </div>
 
-    </section>
+    {% endif %}
 
+
+    <div class="detail-add-image">
+
+        <a
+            href="{% url 'add_image' moodboard.id %}"
+            class="hero-btn"
+        >
+            Add Image
+            <span>+</span>
+        </a>
+
+    </div>
+
+</section>
 </main>
 </body>
 

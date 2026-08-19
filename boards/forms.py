@@ -1,5 +1,5 @@
 from django import forms
-from .models import Moodboard
+from .models import Moodboard, MoodboardImage
 
 class MoodboardForm(forms.ModelForm):
     class Meta:
@@ -18,3 +18,17 @@ class MoodboardForm(forms.ModelForm):
                 'type': 'color'
             }),
         }
+        
+class MoodboardImageForm(forms.ModelForm):
+    class Meta:
+        model = MoodboardImage
+        fields = ['image_url', 'caption']
+        
+        widgets = {
+            'image_url': forms.URLInput(attrs={
+                'placeholder': 'Paste the image URL'
+            }),
+            'caption': forms.TextInput(attrs={
+                'placeholder': 'Give your image a caption(optional)'
+            }),
+        }        

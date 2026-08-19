@@ -1,0 +1,132 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Image | {{ moodboard.title }}</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <a href="{% url 'home' %}" class="logo">
+            <span class="logo-mark">M</span>
+            <span>moodboard</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="#">Explore</a>
+            <a href="{% url 'my_boards' %}">My Boards</a>
+        </div>
+
+        <div class="nav-actions">
+            <a href="{% url 'create_moodboard' %}" class="create-btn">
+                Create <span>+</span>
+            </a>
+        </div>
+
+    </nav>
+
+
+    <!-- Add Image Page -->
+    <main class="add-image-page">
+
+        <div class="add-image-container">
+
+            <p class="eyebrow">
+                ADD TO MOODBOARD
+            </p>
+
+            <h1>
+                Add an image
+            </h1>
+
+            <p class="add-image-description">
+                Add an image to
+                <strong>{{ moodboard.title }}</strong>
+            </p>
+
+
+            <form method="POST" class="image-form">
+
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                    <div class="form-errors">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+
+
+                <div class="form-field">
+
+                    <label for="{{ form.image_url.id_for_label }}">
+                        Image URL
+                    </label>
+
+                    {{ form.image_url }}
+
+                    {% if form.image_url.errors %}
+                        <div class="field-errors">
+                            {{ form.image_url.errors }}
+                        </div>
+                    {% endif %}
+
+                    <p class="field-help">
+                        Paste the URL of an image you want to add.
+                    </p>
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="{{ form.caption.id_for_label }}">
+                        Caption
+                    </label>
+
+                    {{ form.caption }}
+
+                    {% if form.caption.errors %}
+                        <div class="field-errors">
+                            {{ form.caption.errors }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+
+                <div class="image-form-actions">
+
+                    <a
+                        href="{% url 'moodboard_detail' moodboard.id %}"
+                        class="cancel-btn"
+                    >
+                        Cancel
+                    </a>
+
+                    <button type="submit" class="hero-btn">
+                        Add Image
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
