@@ -24,8 +24,12 @@ body {
     border-bottom: 1px solid #e8e4de;
     box-sizing: border-box;
 }
+
 .nav-actions {
     justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
 
@@ -96,15 +100,6 @@ body {
 }
 
 
-/* Right-side navigation */
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-
 /* Create button */
 
 .create-btn {
@@ -132,11 +127,6 @@ body {
     transform: translateY(-2px);
     background: #353535;
 }
-
-
-/* ================================
-   OLD PAGE CONTENT
-   ================================ */
 
 
 /* ================================
@@ -180,7 +170,6 @@ body {
         gap: 0;
     }
 
-    /* About is less important on small screens */
     .about-link {
         display: none;
     }
@@ -201,28 +190,8 @@ body {
         width: 4px;
         height: 4px;
     }
-}@media (max-width: 600px) {
-
-    .navbar {
-        padding: 0 24px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .about-link {
-        display: none;
-    }
-
-    .logo {
-        font-size: 19px;
-    }
-
-    .create-btn {
-        padding: 10px 14px;
-    }
 }
+
 
 /* ================================
    HERO SECTION
@@ -243,7 +212,7 @@ body {
 }
 
 
-/* Small heading above main title */
+/* Small heading */
 
 .eyebrow {
     margin: 0 0 24px;
@@ -318,7 +287,7 @@ body {
 }
 
 
-/* Small text underneath */
+/* Small text */
 
 .hero-note {
     margin-top: 25px;
@@ -326,6 +295,7 @@ body {
     font-size: 12px;
     letter-spacing: 0.3px;
 }
+
 
 /* ================================
    MOODBOARD PREVIEW
@@ -368,7 +338,7 @@ body {
 
 
 /* ================================
-   MASONRY GRID
+   MOODBOARD PREVIEW GRID
    ================================ */
 
 .moodboard-grid {
@@ -406,7 +376,7 @@ body {
 
 
 /* ================================
-   HOVER OVERLAY
+   MOODBOARD HOVER OVERLAY
    ================================ */
 
 .mood-overlay {
@@ -446,6 +416,7 @@ body {
     transform: scale(1.05);
 }
 
+
 /* ================================
    KEYBOARD ACCESSIBILITY
    ================================ */
@@ -473,7 +444,7 @@ body {
 
 
 /* ================================
-   CARD TEXT
+   MOODBOARD CARD TEXT
    ================================ */
 
 .mood-overlay div {
@@ -484,7 +455,6 @@ body {
 .mood-card:hover .mood-overlay div {
     transform: translateY(0);
 }
-
 
 .mood-category {
     display: block;
@@ -497,7 +467,6 @@ body {
     opacity: 0.75;
 }
 
-
 .mood-overlay h3 {
     margin: 0;
 
@@ -505,7 +474,6 @@ body {
     font-weight: 500;
     letter-spacing: -0.5px;
 }
-
 
 .mood-overlay p {
     margin: 6px 0 0;
@@ -516,45 +484,6 @@ body {
 
 
 /* ================================
-   RESPONSIVE GRID
-   ================================ */
-
-@media (max-width: 800px) {
-
-    .moodboard-preview {
-        padding: 90px 24px;
-    }
-
-    .moodboard-grid {
-        columns: 2;
-    }
-}
-
-
-@media (max-width: 500px) {
-
-    .moodboard-preview {
-        padding: 70px 18px;
-    }
-
-    .moodboard-grid {
-        columns: 1;
-    }
-
-    .preview-heading {
-        margin-bottom: 40px;
-    }
-
-    .mood-overlay {
-        opacity: 1;
-    }
-
-    .mood-overlay div {
-        transform: translateY(0);
-    }
-}
-
-/* ================================
    MOODBOARD DETAIL PAGE
    ================================ */
 
@@ -563,12 +492,17 @@ body {
     background: #f7f5f2;
 }
 
+
+/* Header */
+
 .moodboard-detail-header {
     min-height: 380px;
     padding: 80px 24px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     box-sizing: border-box;
     text-align: center;
 }
@@ -588,7 +522,9 @@ body {
 
 .detail-header-content h1 {
     margin: 0;
+
     color: #202020;
+
     font-size: clamp(48px, 7vw, 82px);
     line-height: 1;
     letter-spacing: -4px;
@@ -598,223 +534,44 @@ body {
 .detail-description {
     max-width: 600px;
     margin: 28px auto 0;
+
     color: #77736d;
+
     font-size: 17px;
     line-height: 1.7;
 }
 
 .detail-date {
     margin: 22px 0 0;
+
     color: #aaa59d;
+
     font-size: 12px;
     letter-spacing: 0.4px;
 }
 
+
+/* ================================
+   MOODBOARD CONTENT
+   ================================ */
+
 .moodboard-content {
     max-width: 1100px;
     margin: 0 auto;
+
     padding: 80px 24px 120px;
+
     box-sizing: border-box;
 }
-
-.empty-moodboard {
-    padding: 80px 30px;
-    text-align: center;
-    border: 1px dashed #d8d3cb;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.45);
-}
-
-.empty-moodboard h2 {
-    margin: 0;
-    color: #202020;
-    font-size: 30px;
-    letter-spacing: -1px;
-}
-
-.empty-moodboard p {
-    margin: 16px 0 30px;
-    color: #77736d;
-    font-size: 15px;
-    line-height: 1.6;
-}
-
-.empty-moodboard .hero-btn {
-    border: none;
-    cursor: pointer;
-}
-
-/* ================================
-   ADD IMAGE PAGE
-   ================================ */
-
-.add-image-page {
-    min-height: calc(100vh - 72px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 24px;
-    box-sizing: border-box;
-}
-
-.add-image-container {
-    width: 100%;
-    max-width: 620px;
-}
-
-.add-image-container h1 {
-    margin: 0;
-    color: #202020;
-    font-size: clamp(46px, 7vw, 72px);
-    line-height: 1;
-    letter-spacing: -3px;
-    font-weight: 600;
-}
-
-.add-image-description {
-    margin: 24px 0 45px;
-    color: #77736d;
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-.add-image-description strong {
-    color: #202020;
-    font-weight: 600;
-}
-
-
-/* Form */
-
-.image-form {
-    width: 100%;
-}
-
-.form-field {
-    margin-bottom: 28px;
-}
-
-.form-field label {
-    display: block;
-    margin-bottom: 9px;
-    color: #202020;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.form-field input {
-    width: 100%;
-    padding: 15px 17px;
-    box-sizing: border-box;
-
-    border: 1px solid #d8d3cb;
-    border-radius: 12px;
-
-    background: #ffffff;
-    color: #202020;
-
-    font-family: inherit;
-    font-size: 14px;
-
-    outline: none;
-
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.form-field input:focus {
-    border-color: #202020;
-    box-shadow: 0 0 0 3px rgba(32, 32, 32, 0.08);
-}
-
-.field-help {
-    margin: 8px 0 0;
-    color: #aaa59d;
-    font-size: 12px;
-}
-
-.field-errors,
-.form-errors {
-    margin-top: 8px;
-    color: #a33a3a;
-    font-size: 12px;
-}
-
-.field-errors ul,
-.form-errors ul {
-    margin: 0;
-    padding-left: 18px;
-}
-
-
-/* Form buttons */
-
-.image-form-actions {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 15px;
-    margin-top: 40px;
-}
-
-.cancel-btn {
-    padding: 14px 20px;
-    border-radius: 12px;
-
-    color: #77736d;
-    background: transparent;
-
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-
-    transition:
-        color 0.2s ease,
-        background 0.2s ease;
-}
-
-.cancel-btn:hover {
-    color: #202020;
-    background: #ebe8e3;
-}
-
-
-/* Mobile */
-
-@media (max-width: 600px) {
-
-    .add-image-page {
-        padding: 60px 20px;
-    }
-
-    .add-image-container h1 {
-        letter-spacing: -2px;
-    }
-
-    .image-form-actions {
-        flex-direction: column-reverse;
-        align-items: stretch;
-    }
-
-    .image-form-actions .hero-btn,
-    .cancel-btn {
-        width: 100%;
-        box-sizing: border-box;
-        justify-content: center;
-        text-align: center;
-    }
-}
-
 
 
 /* ================================
-   PINTEREST-STYLE MOODBOARD GALLERY
+   PINTEREST-STYLE MASONRY GALLERY
    ================================ */
 
 .masonry-gallery {
-    columns: 3;
-    column-gap: 22px;
+    columns: 4 240px;
+    column-gap: 20px;
     width: 100%;
 }
 
@@ -824,29 +581,31 @@ body {
    ================================ */
 
 .masonry-card {
-    break-inside: avoid;
-    margin-bottom: 22px;
-
     position: relative;
 
-    border-radius: 20px;
+    break-inside: avoid;
+
+    margin-bottom: 20px;
+
     overflow: hidden;
+
+    border-radius: 18px;
 
     background: #e8e4de;
 
     cursor: pointer;
 
     box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.04);
+        0 3px 10px rgba(0, 0, 0, 0.05);
 
     transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 
 /* ================================
-   IMAGE
+   IMAGE WRAPPER
    ================================ */
 
 .masonry-image-wrapper {
@@ -854,12 +613,16 @@ body {
     overflow: hidden;
 }
 
+
+/* ================================
+   IMAGE
+   ================================ */
+
 .masonry-image-wrapper img {
     width: 100%;
     height: auto;
 
     display: block;
-
     vertical-align: middle;
 
     transition:
@@ -869,7 +632,7 @@ body {
 
 
 /* ================================
-   HOVER EFFECT
+   CARD HOVER
    ================================ */
 
 .masonry-card:hover {
@@ -900,6 +663,8 @@ body {
     display: flex;
     align-items: flex-end;
 
+    box-sizing: border-box;
+
     background: linear-gradient(
         to top,
         rgba(0, 0, 0, 0.72),
@@ -918,8 +683,6 @@ body {
         transform 0.3s ease;
 
     pointer-events: none;
-
-    box-sizing: border-box;
 }
 
 .masonry-caption span {
@@ -939,6 +702,93 @@ body {
 .masonry-card:hover .masonry-caption {
     opacity: 1;
     transform: translateY(0);
+}
+
+
+/* ================================
+   IMAGE CARD ACTIONS
+   ================================ */
+
+.image-card-actions {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    z-index: 5;
+
+    opacity: 0;
+
+    transform: translateY(-5px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* Show controls */
+
+.masonry-card:hover .image-card-actions,
+.masonry-card:focus-within .image-card-actions {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Delete form */
+
+.image-card-actions form {
+    margin: 0;
+}
+
+
+/* Action buttons */
+
+.image-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 34px;
+
+    padding: 8px 12px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 9px;
+
+    background: rgba(20, 20, 20, 0.72);
+
+    backdrop-filter: blur(8px);
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.image-action:hover {
+    background: rgba(20, 20, 20, 0.92);
+    transform: translateY(-1px);
+}
+
+.delete-image-action:hover {
+    background: rgba(150, 40, 40, 0.9);
 }
 
 
@@ -1008,64 +858,6 @@ body {
 
 
 /* ================================
-   TABLET
-   ================================ */
-
-@media (max-width: 900px) {
-
-    .masonry-gallery {
-        columns: 2;
-        column-gap: 18px;
-    }
-
-    .masonry-card {
-        margin-bottom: 18px;
-        border-radius: 17px;
-    }
-}
-
-
-/* ================================
-   MOBILE
-   ================================ */
-
-@media (max-width: 600px) {
-
-    .moodboard-content {
-        padding: 55px 18px 80px;
-    }
-
-    .masonry-gallery {
-        columns: 1;
-    }
-
-    .masonry-card {
-        margin-bottom: 16px;
-        border-radius: 16px;
-    }
-
-    /*
-       Captions remain visible on mobile because
-       there is no reliable hover interaction.
-    */
-
-    .masonry-caption {
-        opacity: 1;
-        transform: translateY(0);
-
-        padding: 55px 17px 17px;
-    }
-
-    .masonry-caption span {
-        font-size: 13px;
-    }
-
-    .detail-add-image {
-        margin-top: 40px;
-    }
-}
-
-/* ================================
    BROKEN IMAGE FALLBACK
    ================================ */
 
@@ -1088,7 +880,7 @@ body {
 }
 
 
-/* Show fallback when image fails */
+/* Show fallback */
 
 .masonry-image-wrapper.image-load-error .image-fallback {
     display: flex;
@@ -1152,118 +944,166 @@ body {
 }
 
 
-/* Mobile */
-
-@media (max-width: 600px) {
-
-    .image-fallback {
-        min-height: 240px;
-        padding: 35px 20px;
-    }
-
-    .image-fallback-icon {
-        width: 44px;
-        height: 44px;
-    }
-}
-
 /* ================================
-   IMAGE CARD ACTIONS
+   ADD IMAGE PAGE
    ================================ */
 
-.image-card-actions {
-    position: absolute;
-
-    top: 14px;
-    right: 14px;
+.add-image-page {
+    min-height: calc(100vh - 72px);
 
     display: flex;
     align-items: center;
-    gap: 7px;
-
-    z-index: 5;
-
-    opacity: 0;
-    transform: translateY(-5px);
-
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
-}
-
-.masonry-card:hover .image-card-actions,
-.masonry-card:focus-within .image-card-actions {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-.image-card-actions form {
-    margin: 0;
-}
-
-
-.image-action {
-    display: inline-flex;
-    align-items: center;
     justify-content: center;
 
-    min-height: 34px;
+    padding: 80px 24px;
 
-    padding: 8px 12px;
+    box-sizing: border-box;
+}
+
+.add-image-container {
+    width: 100%;
+    max-width: 620px;
+}
+
+.add-image-container h1 {
+    margin: 0;
+
+    color: #202020;
+
+    font-size: clamp(46px, 7vw, 72px);
+    line-height: 1;
+    letter-spacing: -3px;
+    font-weight: 600;
+}
+
+.add-image-description {
+    margin: 24px 0 45px;
+
+    color: #77736d;
+
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.add-image-description strong {
+    color: #202020;
+    font-weight: 600;
+}
+
+
+/* ================================
+   IMAGE FORM
+   ================================ */
+
+.image-form {
+    width: 100%;
+}
+
+.form-field {
+    margin-bottom: 28px;
+}
+
+.form-field label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #202020;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.form-field input {
+    width: 100%;
+
+    padding: 15px 17px;
 
     box-sizing: border-box;
 
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 9px;
+    border: 1px solid #d8d3cb;
+    border-radius: 12px;
 
-    background: rgba(20, 20, 20, 0.72);
-    backdrop-filter: blur(8px);
-
-    color: #ffffff;
+    background: #ffffff;
+    color: #202020;
 
     font-family: inherit;
-    font-size: 11px;
-    font-weight: 600;
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-field input:focus {
+    border-color: #202020;
+
+    box-shadow:
+        0 0 0 3px rgba(32, 32, 32, 0.08);
+}
+
+.field-help {
+    margin: 8px 0 0;
+
+    color: #aaa59d;
+
+    font-size: 12px;
+}
+
+.field-errors,
+.form-errors {
+    margin-top: 8px;
+
+    color: #a33a3a;
+
+    font-size: 12px;
+}
+
+.field-errors ul,
+.form-errors ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+
+/* ================================
+   FORM BUTTONS
+   ================================ */
+
+.image-form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+
+    margin-top: 40px;
+}
+
+.cancel-btn {
+    padding: 14px 20px;
+
+    border-radius: 12px;
+
+    color: #77736d;
+    background: transparent;
 
     text-decoration: none;
 
-    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
 
     transition:
-        background 0.2s ease,
-        transform 0.2s ease;
+        color 0.2s ease,
+        background 0.2s ease;
 }
 
-.image-action:hover {
-    background: rgba(20, 20, 20, 0.92);
-    transform: translateY(-1px);
+.cancel-btn:hover {
+    color: #202020;
+    background: #ebe8e3;
 }
 
-
-.delete-image-action:hover {
-    background: rgba(150, 40, 40, 0.9);
-}
-
-
-/* Keep controls visible on touch devices */
-
-@media (max-width: 600px) {
-
-    .image-card-actions {
-        opacity: 1;
-        transform: translateY(0);
-
-        top: 10px;
-        right: 10px;
-    }
-
-    .image-action {
-        min-height: 32px;
-        padding: 7px 10px;
-        font-size: 10px;
-    }
-}
 
 /* ================================
    EDIT IMAGE PAGE
@@ -1312,7 +1152,7 @@ body {
 }
 
 
-/* Preview */
+/* Image preview */
 
 .edit-image-preview {
     width: 100%;
@@ -1337,19 +1177,171 @@ body {
 }
 
 
-/* Mobile */
+/* ================================
+   RESPONSIVE — TABLET
+   ================================ */
+
+@media (max-width: 900px) {
+
+    .masonry-gallery {
+        columns: 2;
+        column-gap: 18px;
+    }
+
+    .masonry-card {
+        margin-bottom: 18px;
+        border-radius: 17px;
+    }
+
+    .moodboard-content {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+}
+
+
+/* ================================
+   RESPONSIVE — MOBILE
+   ================================ */
 
 @media (max-width: 600px) {
 
+    .navbar {
+        padding: 0 16px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .about-link {
+        display: none;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .create-btn {
+        padding: 10px 14px;
+    }
+
+
+    /* Detail page */
+
+    .moodboard-detail-header {
+        min-height: 300px;
+        padding: 60px 20px;
+    }
+
+    .detail-header-content h1 {
+        letter-spacing: -2px;
+    }
+
+    .detail-description {
+        font-size: 15px;
+    }
+
+
+    /* Gallery */
+
+    .moodboard-content {
+        padding: 55px 18px 80px;
+    }
+
+    .masonry-gallery {
+        columns: 1;
+    }
+
+    .masonry-card {
+        margin-bottom: 16px;
+        border-radius: 16px;
+    }
+
+
+    /*
+       Captions remain visible on mobile
+       because there is no reliable hover.
+    */
+
+    .masonry-caption {
+        opacity: 1;
+        transform: translateY(0);
+
+        padding: 55px 17px 17px;
+    }
+
+    .masonry-caption span {
+        font-size: 13px;
+    }
+
+
+    /* Controls remain visible on touch devices */
+
+    .image-card-actions {
+        opacity: 1;
+        transform: translateY(0);
+
+        top: 10px;
+        right: 10px;
+    }
+
+    .image-action {
+        min-height: 32px;
+        padding: 7px 10px;
+        font-size: 10px;
+    }
+
+
+    /* Add image */
+
+    .detail-add-image {
+        margin-top: 40px;
+    }
+
+
+    /* Add/Edit pages */
+
+    .add-image-page,
     .edit-image-page {
         padding: 60px 20px;
     }
 
+    .add-image-container h1,
     .edit-image-container h1 {
         letter-spacing: -2px;
     }
 
+    .image-form-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .image-form-actions .hero-btn,
+    .cancel-btn {
+        width: 100%;
+        box-sizing: border-box;
+        justify-content: center;
+        text-align: center;
+    }
+
+
+    /* Edit preview */
+
     .edit-image-preview {
         border-radius: 15px;
+    }
+
+
+    /* Broken image */
+
+    .image-fallback {
+        min-height: 240px;
+        padding: 35px 20px;
+    }
+
+    .image-fallback-icon {
+        width: 44px;
+        height: 44px;
     }
 }

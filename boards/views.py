@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import MoodboardForm, MoodboardImageForm
 from .models import Moodboard, MoodboardImage
+from .forms import MoodboardForm, MoodboardImageForm
 
 
 def home(request):
@@ -47,14 +47,17 @@ def add_image(request, board_id):
     moodboard = get_object_or_404(Moodboard, id=board_id)
 
     if request.method == 'POST':
-        form = MoodboardImageForm(request.POST)
+        form = MoodboardImageForm(request.POST, request.FILES)
 
         if form.is_valid():
             image = form.save(commit=False)
             image.moodboard = moodboard
             image.save()
 
-            return redirect('moodboard_detail', board_id=moodboard.id)
+            return redirect(
+                'moodboard_detail',
+                board_id=moodboard.id
+            )
 
     else:
         form = MoodboardImageForm()
