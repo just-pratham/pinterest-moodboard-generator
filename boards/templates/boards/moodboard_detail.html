@@ -188,6 +188,114 @@
         </a>
 
     </div>
+    {% if recommendations %}
+
+<section class="recommendations-section">
+
+    <div class="recommendations-header">
+
+        <p class="eyebrow">
+            DISCOVER
+        </p>
+
+        <h2>
+            Recommended for {{ moodboard.title }}
+        </h2>
+
+        <p>
+            Images inspired by your moodboard.
+        </p>
+
+    </div>
+
+
+    <div class="recommendation-grid">
+
+        {% for photo in recommendations %}
+
+        <article class="recommendation-card">
+
+            <img
+                src="{{ photo.image_url }}"
+                alt="{{ photo.alt_description }}"
+                loading="lazy"
+            >
+
+            <div class="recommendation-overlay">
+
+                <form
+    method="POST"
+    action="{% url 'add_recommended_image' moodboard.id %}"
+>
+    {% csrf_token %}
+
+    <input
+    type="hidden"
+    name="unsplash_id"
+    value="{{ photo.id }}"
+    >
+
+    <input
+        type="hidden"
+        name="image_url"
+        value="{{ photo.image_url }}"
+    >
+
+    <input
+        type="hidden"
+        name="caption"
+        value="{{ photo.alt_description }}"
+    >
+
+    <input
+    type="hidden"
+    name="download_location"
+    value="{{ photo.download_location }}"
+    >
+
+    <button
+        type="submit"
+        class="recommendation-add-btn"
+    >
+        + Add
+    </button>
+</form>
+
+                <div class="recommendation-info">
+
+                    Photo by
+
+                    <a
+                        href="{{ photo.photographer_url }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {{ photo.photographer }}
+                    </a>
+
+                    on
+
+                    <a
+                        href="{{ photo.unsplash_url }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Unsplash
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endif %}
 
 </section>
 </main>

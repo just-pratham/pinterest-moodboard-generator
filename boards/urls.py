@@ -25,4 +25,10 @@ urlpatterns = [
         views.delete_image,
         name='delete_image'
     ),
+    
+    path(
+    '<int:board_id>/add-recommended-image/',
+    views.add_recommended_image,
+    name='add_recommended_image'
+),
 ]
