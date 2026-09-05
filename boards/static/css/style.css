@@ -1344,4 +1344,258 @@ body {
         width: 44px;
         height: 44px;
     }
+
+}
+
+/* ================================
+   RECOMMENDATIONS HEADER
+   ================================ */
+
+.recommendations-heading-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+
+    margin-bottom: 40px;
+}
+
+.recommendations-heading-row .recommendations-header {
+    margin-bottom: 0;
+}
+
+
+/* Refresh button */
+
+.refresh-recommendations-btn {
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 11px 16px;
+
+    border: 1px solid #d8d3cb;
+    border-radius: 11px;
+
+    background: #ffffff;
+
+    color: #403d39;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.refresh-recommendations-btn span {
+    font-size: 17px;
+    line-height: 1;
+
+    transition: transform 0.35s ease;
+}
+
+.refresh-recommendations-btn:hover {
+    background: #ebe8e3;
+    border-color: #c8c3bb;
+
+    transform: translateY(-1px);
+}
+
+.refresh-recommendations-btn:hover span {
+    transform: rotate(180deg);
+}
+
+/* ================================
+   COMPACT RECOMMENDATION GRID
+   ================================ */
+
+.recommendation-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    width: 100%;
+}
+
+.recommendation-card {
+    position: relative;
+    height: 165px;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #e8e4de;
+}
+
+.recommendation-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.recommendation-card:hover img {
+    transform: scale(1.04);
+}
+
+/* ================================
+   RECOMMENDATION CARD OVERLAY
+   ================================ */
+
+.recommendation-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    padding: 12px;
+    box-sizing: border-box;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.12),
+        transparent 45%,
+        rgba(0, 0, 0, 0.62)
+    );
+
+    opacity: 0;
+
+    transition: opacity 0.25s ease;
+}
+
+.recommendation-card:hover .recommendation-overlay {
+    opacity: 1;
+}
+
+.recommendation-add-btn {
+    padding: 8px 12px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #202020;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.recommendation-add-btn:hover {
+    background: #f2f0ed;
+    transform: translateY(-1px);
+}
+
+.recommendation-info {
+    width: 100%;
+
+    margin-top: auto;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    font-size: 9px;
+    line-height: 1.4;
+}
+
+.recommendation-info a {
+    color: #ffffff;
+}
+
+/* ================================
+   RESPONSIVE RECOMMENDATION GRID
+   ================================ */
+
+@media (max-width: 900px) {
+
+    .recommendation-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .recommendation-card {
+        height: 155px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .recommendations-heading-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .refresh-recommendations-btn {
+        align-self: flex-start;
+    }
+
+    .recommendation-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .recommendation-card {
+        height: 145px;
+        border-radius: 12px;
+    }
+
+    .recommendation-overlay {
+        opacity: 1;
+    }
+
+    .recommendation-add-btn {
+        padding: 7px 10px;
+        font-size: 10px;
+    }
+
+    .recommendation-info {
+        font-size: 8px;
+    }
+}
+
+/* ================================
+   SUCCESS MESSAGE
+   ================================ */
+
+.messages-container {
+    position: fixed;
+    top: 90px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 1000;
+}
+
+.success-message {
+    padding: 12px 18px;
+
+    border: 1px solid #d8d3cb;
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    color: #202020;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.10);
+
+    backdrop-filter: blur(10px);
 }

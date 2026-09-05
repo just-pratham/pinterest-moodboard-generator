@@ -6,7 +6,7 @@ from django.conf import settings
 UNSPLASH_SEARCH_URL = "https://api.unsplash.com/search/photos"
 
 
-def get_recommended_images(query, per_page=12):
+def get_recommended_images(query, per_page=12, page = 1):
     if not settings.UNSPLASH_ACCESS_KEY:
         return []
 
@@ -18,6 +18,7 @@ def get_recommended_images(query, per_page=12):
     params = {
         "query": query,
         "per_page": per_page,
+        "page": page,
         "order_by": "relevant",
         "content_filter": "high",
     }

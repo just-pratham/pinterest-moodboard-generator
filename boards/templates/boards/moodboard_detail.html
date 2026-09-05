@@ -14,6 +14,22 @@
 
 <body>
 
+    {% if messages %}
+
+    <div class="messages-container">
+
+        {% for message in messages %}
+
+            <div class="success-message">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+{% endif %}
+
     <!-- Navigation -->
     <nav class="navbar">
 
@@ -208,6 +224,13 @@
 
     </div>
 
+    <a
+        href="?refresh={{ next_refresh }}"
+        class="refresh-recommendations-btn"
+    >
+        <span>↻</span>
+        Refresh
+    </a>
 
     <div class="recommendation-grid">
 
@@ -299,6 +322,24 @@
 
 </section>
 </main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const messageContainer = document.querySelector(".messages-container");
+
+        if (messageContainer) {
+            setTimeout(function () {
+                messageContainer.style.transition = "opacity 0.4s ease";
+                messageContainer.style.opacity = "0";
+
+                setTimeout(function () {
+                    messageContainer.remove();
+                }, 400);
+            }, 2500);
+        }
+    });
+</script>
+
 </body>
 
 </html>
